@@ -9,19 +9,22 @@ tools = [
       Can perform subtraction through addition of negative numbers. 
       Return the sum in float""",
       "parameters":{
-        "a":{
-          "type":"float",
-          "description":"""The first number of the addition"""
+        "type":"object",
+        "properties":{
+          "a":{
+            "type":"number",
+            "description":"""The first number of the addition"""
+          },
+          "b":{
+            "type":"number",
+            "description":"""The second number of the addition"""
+          }
         },
-        "b":{
-          "type":"float",
-          "description":"""The second number of the addition"""
-        }
+        "required":["a","b"],
+        "additionalProperties":False
       },
-      "required":["a","b"],
-      "additionalProperties":False
-    },
     "strict":True
+    },
   },
   {
     "type":"function",
@@ -31,19 +34,22 @@ tools = [
       Can perform division using reciptrical of a number. 
       Return the product in float""",
       "parameters":{
-        "a":{
-          "type":"float",
-          "description":"""The first number of the multiplication"""
+        "type":"object",
+        "properties":{
+          "a":{
+            "type":"number",
+            "description":"""The first number of the multiplication"""
+          },
+          "b":{
+            "type":"number",
+            "description":"""The second number of the multiplication"""
+          }
         },
-        "b":{
-          "type":"float",
-          "description":"""The second number of the multiplication"""
-        }
+        "required":["a","b"],
+        "additionalProperties":False
       },
-      "required":["a","b"],
-      "additionalProperties":False
+      "strict":True
     },
-    "strict":True
   }
 ]
 
