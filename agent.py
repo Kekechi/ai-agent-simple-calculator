@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 from openai import OpenAI
-import os, json, tools
+from tools import tools,add,multiply
+import os, json
 
 load_dotenv('.env')
 API_KEY = os.getenv('API_KEY')
@@ -24,6 +25,7 @@ class Agent:
       1. When asked to calculate math equations, always use the available tools first
       2. If a tool returns an error, explain the error to the user clearly"""
     })
+  
 
   def process_query(self,user_input):
     self.messages.append({
@@ -33,7 +35,9 @@ class Agent:
 
     completion = self.client.chat.completions.create(
       model="gpt-5-nano",
-      messages=self.messages
+      messages=self.messages,
+      tools=tools,
+      tool_choice='auto'
     )
 
     response_message = completion.choices[0].message
